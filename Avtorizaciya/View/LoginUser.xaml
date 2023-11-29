@@ -1,0 +1,68 @@
+﻿<Window x:Class="Avtorizaciya.View.LoginUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Avtorizaciya.View" 
+        xmlns:viewmodel="clr-namespace:Avtorizaciya.ViewModel" 
+        d:DataContext="{d:DesignInstance Type=viewmodel:MainWindowViewModel}"
+        mc:Ignorable="d"
+        Title="Войти..." Height="400" Width="350" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" >
+    <Grid>
+        <Grid.Style>
+            <Style TargetType="Grid">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsDarkTheme}" Value="True">
+                        <Setter Property="Background" Value="{DynamicResource DarkGl}"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding IsDarkTheme}" Value="False">
+                        <Setter Property="Background" Value="{DynamicResource WhiteGl}"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource TB}" Text="User Login" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
+        <Grid Grid.Row="1">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsDarkTheme}" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource DarkBas}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsDarkTheme}" Value="False">
+                            <Setter Property="Background" Value="{DynamicResource WhiteBas}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <Button Height="30" Width="30" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding OpenSetCommand}">
+                <Image Source="/Resources/free-icon-settings-503849.png"/>
+            </Button>
+            <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="220">
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource TB}" Text="Login:"/>
+                        <TextBox x:Name="UserNameTextBox" Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontFamily="{StaticResource Inter}" Height="30"/>
+                        <TextBlock Style="{StaticResource TB}" Text="Password:"/>
+                        <TextBox x:Name="PasswordTextBox" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontFamily="{StaticResource Inter}" Height="30"/>
+                    </StackPanel>
+                </Grid>
+                <Grid VerticalAlignment="Bottom">
+                    <StackPanel>
+                        <Button x:Name="LoginButton" Command="{Binding LoginCommand}" FontFamily="{StaticResource Inter}" Content="Sign in" Height="50"/>
+                        <TextBlock FontFamily="{StaticResource Inter}" Text="Sign up?" FontSize="16" TextDecorations="Underline">
+                            <TextBlock.InputBindings>
+                                <MouseBinding MouseAction="LeftClick" Command="{Binding OpenRegisterCommand}"/>
+                            </TextBlock.InputBindings>
+                        </TextBlock>
+                        <TextBlock x:Name="ErrorTextBlock" Text="{Binding ErrorMessage}" Foreground="#FFFF180D" FontSize="15"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

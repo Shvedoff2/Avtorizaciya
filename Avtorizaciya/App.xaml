@@ -1,12 +1,12 @@
-﻿<Application x:Class="Avtorizaciya.App"
+﻿    <Application x:Class="Avtorizaciya.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Avtorizaciya"
-             StartupUri="View/MainWindow.xaml">
+             StartupUri="View/LoginUser.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Theme/ModernTextBox.xaml"/>
+                <ResourceDictionary Source="Theme/Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

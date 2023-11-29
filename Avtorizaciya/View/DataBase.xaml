@@ -1,0 +1,98 @@
+﻿<Window x:Class="Avtorizaciya.View.DataBase"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Avtorizaciya.View" 
+        xmlns:viewmodel="clr-namespace:Avtorizaciya.ViewModel" 
+        d:DataContext="{d:DesignInstance Type=viewmodel:MainWindowViewModel}"
+        mc:Ignorable="d"
+        Title="Работа с базой данных" Height="450" Width="800" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid x:Name="Grid1" MouseDown="Grid_MouseDown">
+        <Grid.Style>
+            <Style TargetType="Grid">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsDarkTheme}" Value="True">
+                        <Setter Property="Background" Value="{DynamicResource DarkGl}"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding IsDarkTheme}" Value="False">
+                        <Setter Property="Background" Value="{DynamicResource WhiteGl}"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Grid.Row="0" Width="40" Command="{Binding MinimizeCommand}">
+                <Image Source="/Resources/free-icon-minimize-sign-6057365.png"/>
+            </Button>
+            <Button Grid.Row="0" Width="40" Command="{Binding MaximizeCommand}">
+                <Image>
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Setter Property="Source" Value="/Resources/free-icon-inpand.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsImageChanged}" Value="True">
+                                    <Setter Property="Source" Value="/Resources/free-icon-expand-window-6583139.png" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button>
+            <Button Grid.Row="0" Width="40" Command="{Binding CloseCommand}">
+                <Image Source="/Resources/free-icon-cross-sign-57165.png"/>
+            </Button>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsDarkTheme}" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource DarkBas}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsDarkTheme}" Value="False">
+                            <Setter Property="Background" Value="{DynamicResource WhiteBas}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Height="30" Width="30" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding OpenSetCommand}">
+                <Image Source="/Resources/free-icon-settings-503849.png"/>
+            </Button>
+            <ListView x:Name="listviewUsers" ItemsSource="{Binding Users}" SelectedValue="{Binding SelectedUser}" Width="500" Height="300">
+                <ListView.View>
+                    <GridView ColumnHeaderContainerStyle="{StaticResource headerListView}">
+                        <GridViewColumn DisplayMemberBinding="{Binding ID}" 
+                      Header="ID" Width="25"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Login}" 
+                      Header="login" Width="150"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}" 
+                      Header="name" Width="150"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Role}" 
+                      Header="role" Width="100"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="230" Height="260">
+                <Grid Height="260" Width="230">
+                    <Grid Height="127" VerticalAlignment="Top">
+                        <Button VerticalAlignment="Top" Content="Добавить пользователя" Height="60" Width="230"  FontFamily="{StaticResource Inter}" Command="{Binding OpenAddUserCommand}"/>
+                        <Button VerticalAlignment="Bottom" Content="Изменить пользователя" Height="60" Width="230" FontFamily="{StaticResource Inter}" Command="{Binding EditUserCommand}"/>
+                    </Grid>
+                    <Grid Height="127" Width="230" VerticalAlignment="Bottom">
+                        <Button VerticalAlignment="Top" Content="Обновить таблицу" Height="60" Width="230" FontFamily="{StaticResource Inter}" Command="{Binding UpdateTableCommand}"/>
+                        <Button VerticalAlignment="Bottom" Content="Удалить пользователя" Height="60" Width="230" FontFamily="{StaticResource Inter}" Command="{Binding DeleteUserCommand}"/>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

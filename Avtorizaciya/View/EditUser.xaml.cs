@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Avtorizaciya.View
 {
     /// <summary>
-    /// Логика взаимодействия для Regist.xaml
+    /// Логика взаимодействия для Redact.xaml
     /// </summary>
-    public partial class Regist : Window
+    public partial class EditUser : Window
     {
-        public Regist()
+        public EditUser()
         {
             InitializeComponent();
         }
