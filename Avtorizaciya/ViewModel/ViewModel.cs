@@ -363,7 +363,7 @@ namespace Avtorizaciya.ViewModel
         private void Maximize(object obj)
         {
             IsImageChanged = !IsImageChanged;
-            if (Application.Current.Windows[0].Height == 450)
+            if (Application.Current.Windows[0].WindowState == WindowState.Normal)
             {
                 Application.Current.Windows[0].WindowState = WindowState.Maximized;
             }
