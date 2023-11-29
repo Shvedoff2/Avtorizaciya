@@ -71,6 +71,7 @@
                 <Setter Property="Foreground" Value="Black"/>
             </DataTrigger>
         </Style.Triggers>
+        <Setter Property="FontSize" Value="14"/>
         <Setter Property="ItemContainerStyle">
             <Setter.Value>
                 <Style TargetType="ListViewItem">

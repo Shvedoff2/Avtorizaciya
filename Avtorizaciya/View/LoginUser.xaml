@@ -54,7 +54,7 @@
                 <Grid VerticalAlignment="Bottom">
                     <StackPanel>
                         <Button x:Name="LoginButton" Command="{Binding LoginCommand}" FontFamily="{StaticResource Inter}" Content="Sign in" Height="50"/>
-                        <TextBlock FontFamily="{StaticResource Inter}" Text="Sign up?" FontSize="16" TextDecorations="Underline">
+                        <TextBlock Style="{StaticResource TB}" FontFamily="{StaticResource Inter}" Text="Sign up?" FontSize="16" TextDecorations="Underline">
                             <TextBlock.InputBindings>
                                 <MouseBinding MouseAction="LeftClick" Command="{Binding OpenRegisterCommand}"/>
                             </TextBlock.InputBindings>

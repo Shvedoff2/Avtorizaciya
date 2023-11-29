@@ -23,11 +23,6 @@ namespace Avtorizaciya.View
             InitializeComponent();
             DataContext = new MainWindowViewModel(new LoginService(), new RegistService(), new ProverkaService());
         }
-        private void Window_click(object sender, MouseButtonEventArgs e)
-        {
-            
-        }
-
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

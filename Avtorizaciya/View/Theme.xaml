@@ -46,7 +46,7 @@
                     <Button FontFamily="{StaticResource Inter}" Command="{Binding ChangeToLightThemeCommand}" Content="White" Height="51" VerticalAlignment="Bottom"/>
                 </Grid>
                 <Grid Height="115" Width="245">
-                    <Button FontFamily="{StaticResource Inter}" Command="{Binding BackCommand, UpdateSourceTrigger=PropertyChanged}" Content="Back" Height="35" Width="60" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                    <Button FontFamily="{StaticResource Inter}" Command="{Binding BackCommand, UpdateSourceTrigger=PropertyChanged, Mode=Default}" Content="Back" Height="35" Width="60" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
                 </Grid>
             </StackPanel>
         </Grid>

@@ -50,7 +50,7 @@
                     <TextBlock Style="{StaticResource TB}" Text="Name:"/>
                     <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontFamily="{StaticResource Inter}" Height="30" />
                 </StackPanel>
-                <Button Command="{Binding RegistCommand}" FontFamily="{StaticResource Inter}" Content="Sign Up" Height="51" Foreground="White" VerticalAlignment="Bottom" Click="Button_Click"/>
+                <Button Command="{Binding RegistCommand}" FontFamily="{StaticResource Inter}" Content="Sign Up" Height="51" Foreground="White" VerticalAlignment="Bottom"/>
             </Grid>
         </Grid>
     </Grid>

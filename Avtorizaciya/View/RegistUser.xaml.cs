@@ -26,10 +26,5 @@ namespace Avtorizaciya.View
             InitializeComponent();
             DataContext = new MainWindowViewModel(new LoginService(), new RegistService(), new ProverkaService());
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
